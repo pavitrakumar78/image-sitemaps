@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 from django.template import loader
 from django.contrib.sites.models import Site
-from django.core import urlresolvers
+from django.urls import reverse
 from django.utils.encoding import smart_str
 from django.core.paginator import EmptyPage, PageNotAnInteger
 
@@ -18,7 +18,7 @@ def index(request, sitemaps):
             pages = site().paginator.num_pages
         else:
             pages = site.paginator.num_pages
-        sitemap_url = urlresolvers.reverse('imagesitemaps.views.sitemap', kwargs={'section': section})
+        sitemap_url = reverse('imagesitemaps.views.sitemap', kwargs={'section': section})
         sites.append('%s://%s%s' % (protocol, current_site.domain, sitemap_url))
         if pages > 1:
             for page in range(2, pages+1):
