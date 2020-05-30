@@ -1,4 +1,4 @@
-from django.core import urlresolvers, paginator
+from django.core import paginator
 from django.contrib.sitemaps import Sitemap
 from django.core.exceptions import ImproperlyConfigured
 from django.contrib.sites.models import Site
